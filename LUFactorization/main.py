@@ -1,5 +1,6 @@
 import numpy
 import copy
+import substitution
 
 n = int(input())
 matrixA = []
@@ -61,3 +62,5 @@ for i in range(n):
 matrixL = numpy.column_stack(matrixL)
 print(matrixL)
 
+print(substitution.forward_substitution(matrixL))
+print(substitution.backward_substitution(matrixU))
