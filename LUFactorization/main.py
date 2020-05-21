@@ -1,6 +1,6 @@
 import numpy
 import copy
-import substitution
+from LUFactorization import substitution
 
 n = int(input())
 matrixA = []
@@ -43,8 +43,8 @@ for i in range(n):
         if matrixU[k][i + yIndex] != 0:
             matrixU[k:k + 1] -= (matrixU[i:i + 1] * matrixU[k][i + yIndex]) / \
                                 matrixU[i][i + yIndex]
+print("U Matrix:")
 print(matrixU)
-print(matrixA)
 
 # creating L matrix
 
@@ -60,7 +60,7 @@ for i in range(n):
     matrixL.append(c)
 
 matrixL = numpy.column_stack(matrixL)
+print("L Matrix:")
 print(matrixL)
-
-print(substitution.forward_substitution(matrixL))
-print(substitution.backward_substitution(matrixU))
+print("A Inverse Matrix:")
+print(substitution.find_inverse(matrixA, matrixL, matrixU))
